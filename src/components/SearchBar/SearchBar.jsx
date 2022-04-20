@@ -1,9 +1,11 @@
+import SearchBarStyled from "./SearchBar.styled";
+
 function SearchBar() {
   return (
-    <form>
+    <SearchBarStyled>
       <input type="search" />
       <button type="submit">Search</button>
-    </form>
+    </SearchBarStyled>
   );
 }
 
