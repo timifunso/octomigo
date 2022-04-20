@@ -1,26 +1,15 @@
 import { createContext, useState, useEffect } from "react";
+import axios from "axios";
 
-const GlobalContext = createContext();
+export const GlobalContext = createContext();
 
 export function GlobalContextProvider({ children }) {
   const [username, setUsername] = useState("");
 
-  async function fetchuser() {
-    try {
-      const fetchData = await fetch(`https://api.github.com/users/${username}`);
-      const res = await fetchData.json();
-      console.log(res);
-    } catch (e) {
-      console.log(e);
-    }
-  }
-
-  useEffect(() => {
-    // fetchuser();
-  }, [username]);
-
   return (
-    <GlobalContext.Provider value={username}>{children}</GlobalContext.Provider>
+    <GlobalContext.Provider value={{ setUsername, username }}>
+      {children}
+    </GlobalContext.Provider>
   );
 }
 

@@ -1,10 +1,12 @@
 import SearchForm from "../components/Search/SearchForm";
+import Wrapper from "../components/Wrapper";
 
 function Main() {
   return (
     <div>
-      <h1>Home</h1>
-      <SearchForm />
+      <Wrapper>
+        <SearchForm />
+      </Wrapper>
     </div>
   );
 }
