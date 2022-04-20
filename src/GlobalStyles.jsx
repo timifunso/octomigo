@@ -65,9 +65,16 @@ const GlobalStyles = createGlobalStyle`
         display: block;
     }
 
-    .section-h{
+    h2{
         font-size: var(--fs-2);
+    }
+
+    .section-h{ 
         margin: 4rem 0 2rem 0;
+    }
+
+    .fs-md{
+        font-size: var(--fs-0);
     }
 `;
 

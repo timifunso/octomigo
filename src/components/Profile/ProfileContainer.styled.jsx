@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const ProfileContainerStyled = styled.header`
+  position: relative;
   width: 90%;
   max-width: 1200px;
   margin: 1rem auto;
@@ -10,6 +11,21 @@ const ProfileContainerStyled = styled.header`
   display: grid;
   gap: 1rem;
   border-radius: 4px;
+
+  & button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--color-120);
+    background-color: var(--color-400);
+    cursor: pointer;
+  }
 
   & img {
     width: min(50vw, 200px);

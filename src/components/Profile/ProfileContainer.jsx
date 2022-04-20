@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import ReposContainer from "../Repos/ReposContainer";
 import ProfileContainerStyled from "./ProfileContainer.styled";
+import LineIcon from "react-lineicons";
+import { useNavigate } from "react-router-dom";
 
 function ProfileContainer({ data }) {
   const [isLoading, setIsLoading] = useState(true);
   const [userRepos, setUserRepos] = useState([]);
+  const navigate = useNavigate();
   const {
     avatar_url,
     bio,
@@ -28,10 +31,13 @@ function ProfileContainer({ data }) {
     <section>
       <header>
         <ProfileContainerStyled>
+          <button title="Go back to home" onClick={() => navigate("/")}>
+            <LineIcon name="arrow-left" />
+          </button>
           <img src={avatar_url} alt="" />
           <div className="details">
             <h2>{name}</h2>
-            <span>@{login}</span>
+            <span className="fs-md">@{login}</span>
             {bio && <p className="w-md">{bio}</p>}
             <div className="grid w-md">
               <div>
