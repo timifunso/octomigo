@@ -1,7 +1,7 @@
 import GlobalStyles from "./GlobalStyles";
 import { GlobalContextProvider } from "./GlobalContext";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Main from "./pages/Main";
+import Main from "./pages/Home";
 import Profile from "./pages/Profile";
 
 function App() {
