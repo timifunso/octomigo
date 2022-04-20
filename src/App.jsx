@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import GlobalStyles from "./GlobalStyles";
-import SearchBar from "./components/SearchBar/SearchBar";
-import Wrapper from "./components/Wrapper";
 
 function App() {
   const [username, setUsername] = useState("");
@@ -21,10 +19,14 @@ function App() {
   }, [username]);
 
   return (
-    <Wrapper>
+    <>
       <GlobalStyles />
-      <SearchBar />
-    </Wrapper>
+      {/* <Wrapper>
+        <SearchBar />
+        <Profile></Profile>
+      </Wrapper> */}
+      <h1>Octomigo</h1>
+    </>
   );
 }
 
