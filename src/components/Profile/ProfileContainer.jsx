@@ -8,16 +8,8 @@ function ProfileContainer({ data }) {
   const [isLoading, setIsLoading] = useState(true);
   const [userRepos, setUserRepos] = useState([]);
   const navigate = useNavigate();
-  const {
-    avatar_url,
-    bio,
-    followers,
-    following,
-    name,
-    login,
-    public_repos,
-    created_at,
-  } = data;
+  const { avatar_url, bio, followers, following, name, login, public_repos } =
+    data;
 
   useEffect(() => {
     fetch(`https://api.github.com/users/${login}/repos`)
