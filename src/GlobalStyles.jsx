@@ -80,6 +80,11 @@ const GlobalStyles = createGlobalStyle`
     .fs-md{
         font-size: var(--fs-0);
     }
+
+    .fs-xmd{
+        font-size: var(--fs-2);
+    }
+
 `;
 
 export default GlobalStyles;

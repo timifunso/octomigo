@@ -18,13 +18,8 @@ const ProfileContainerStyled = styled.header`
     right: 1rem;
     padding: 0 1rem;
     height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border-radius: 4px;
-    font-weight: bold;
     color: var(--color-110);
-    letter-spacing: 0.2px;
     background-color: var(--color-500);
     cursor: pointer;
   }
@@ -38,7 +33,7 @@ const ProfileContainerStyled = styled.header`
   }
 
   & .w-md {
-    max-width: 480px;
+    max-width: 560px;
     margin: 1rem 0;
   }
 
@@ -52,7 +47,6 @@ const ProfileContainerStyled = styled.header`
 
       & span:nth-child(1) {
         font-weight: bold;
-        font-size: 1.25rem;
       }
     }
   }

@@ -29,18 +29,18 @@ function ProfileContainer({ data }) {
           <div className="details">
             <h2>{name}</h2>
             <span className="fs-md">@{login}</span>
-            {bio && <p className="w-md">{bio}</p>}
+            {bio && <p className="fs-md w-md">{bio}</p>}
             <div className="grid w-md">
               <div>
-                <span>{public_repos} </span>
+                <span className="fs-xmd">{public_repos} </span>
                 <span>Respositories</span>
               </div>
               <div>
-                <span>{followers} </span>
+                <span className="fs-xmd">{followers} </span>
                 <span>Followers</span>
               </div>
               <div>
-                <span>{following} </span>
+                <span className="fs-xmd">{following} </span>
                 <span>Following</span>
               </div>
             </div>
