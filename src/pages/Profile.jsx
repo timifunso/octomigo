@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../GlobalContext";
+import ProfileContainer from "../components/Profile/ProfileContainer";
 
 function Profile() {
   const { username } = useContext(GlobalContext);
@@ -14,7 +15,7 @@ function Profile() {
       .catch((error) => console.log(error));
   }, []);
 
-  return <>{!isLoading && <h1>{userProfile.node_id}</h1>}</>;
+  return <>{!isLoading && <ProfileContainer data={userProfile} />}</>;
 }
 
 export default Profile;
