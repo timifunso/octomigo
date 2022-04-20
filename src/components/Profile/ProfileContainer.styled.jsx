@@ -16,14 +16,16 @@ const ProfileContainerStyled = styled.header`
     position: absolute;
     top: 1rem;
     right: 1rem;
-    width: 40px;
+    padding: 0 1rem;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    color: var(--color-120);
-    background-color: var(--color-400);
+    border-radius: 4px;
+    font-weight: bold;
+    color: var(--color-110);
+    letter-spacing: 0.2px;
+    background-color: var(--color-500);
     cursor: pointer;
   }
 
