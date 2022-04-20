@@ -1,16 +1,21 @@
 import { useState, useEffect } from "react";
 import GlobalStyles from "./GlobalStyles";
+import { GlobalContextProvider } from "./GlobalContext";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Main from "./pages/Main";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
-    <>
-      <GlobalStyles />
-      {/* <Wrapper>
-        <SearchBar />
-        <Profile></Profile>
-      </Wrapper> */}
-      <h1>Octomigo</h1>
-    </>
+    <GlobalContextProvider>
+      <BrowserRouter>
+        <GlobalStyles />
+        <Routes>
+          <Route path="/" element={<Main />}></Route>
+          <Route path="/profile" element={<Profile />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </GlobalContextProvider>
   );
 }
 

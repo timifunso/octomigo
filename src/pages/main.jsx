@@ -1,11 +1,12 @@
 import SearchForm from "../components/Search/SearchForm";
 
-function main() {
+function Main() {
   return (
     <div>
+      <h1>Home</h1>
       <SearchForm />
     </div>
   );
 }
 
-export default main;
+export default Main;
