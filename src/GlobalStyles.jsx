@@ -65,6 +65,10 @@ const GlobalStyles = createGlobalStyle`
         display: block;
     }
 
+    h1{
+        font-size: var(--fs-4);
+    }
+
     h2{
         font-size: var(--fs-2);
     }

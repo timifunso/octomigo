@@ -32,7 +32,7 @@ const SearchFormStyled = styled.div`
 
     & button {
       height: 48px;
-      padding: 0 2rem;
+      padding: 0 3rem;
       /* width: 100%; */
       margin-top: 1rem;
       background-color: var(--color-300);
