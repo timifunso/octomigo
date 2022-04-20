@@ -5,7 +5,7 @@ const ProfileContainerStyled = styled.header`
   max-width: 1200px;
   margin: 1rem auto;
   padding: 3rem 1rem;
-  background-color: var(--color-120);
+  background-color: var(--color-550);
   color: var(--color-700);
   display: grid;
   gap: 1rem;
@@ -24,7 +24,7 @@ const ProfileContainerStyled = styled.header`
     margin: 1rem 0;
   }
 
-  & .flex {
+  & .grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(100px, 180px));
     gap: 1rem;
@@ -42,6 +42,11 @@ const ProfileContainerStyled = styled.header`
   @media (min-width: 760px) {
     grid-template-columns: 200px 1fr;
     gap: min(3rem, 10vw);
+  }
+
+  @media (min-width: 1000px) {
+    padding: 4rem 6rem;
+    align-items: center;
   }
 `;
 

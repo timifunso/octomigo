@@ -14,6 +14,11 @@ const RepoItemStyled = styled.div`
     color: inherit;
   }
 
+  & h3 {
+    font-size: var(--fs-0);
+    margin-bottom: 1rem;
+  }
+
   & .container {
     padding: 2rem 1rem;
     display: flex;
