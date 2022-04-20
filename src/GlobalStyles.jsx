@@ -26,13 +26,13 @@ const GlobalStyles = createGlobalStyle`
     --color-700: #040118;
     --color-800: #b4bad3;
     --fs--2: clamp(0.69rem, calc(0.59rem + 0.52vw), 0.96rem);
-  --fs--1: clamp(0.78rem, calc(0.61rem + 0.82vw), 1.20rem);
-  --fs-0: clamp(0.88rem, calc(0.63rem + 1.22vw), 1.50rem);
-  --fs-1: clamp(0.98rem, calc(0.64rem + 1.74vw), 1.88rem);
-  --fs-2: clamp(1.11rem, calc(0.63rem + 2.41vw), 2.34rem);
-  --fs-3: clamp(1.25rem, calc(0.59rem + 3.29vw), 2.93rem);
-  --fs-4: clamp(1.40rem, calc(0.52rem + 4.41vw), 3.66rem);
-  --fs-5: clamp(1.58rem, calc(0.41rem + 5.85vw), 4.58rem);
+    --fs--1: clamp(0.78rem, calc(0.61rem + 0.82vw), 1.20rem);
+    --fs-0: clamp(0.88rem, calc(0.63rem + 1.22vw), 1.50rem);
+    --fs-1: clamp(0.98rem, calc(0.64rem + 1.74vw), 1.88rem);
+    --fs-2: clamp(1.11rem, calc(0.63rem + 2.41vw), 2.34rem);
+    --fs-3: clamp(1.25rem, calc(0.59rem + 3.29vw), 2.93rem);
+    --fs-4: clamp(1.40rem, calc(0.52rem + 4.41vw), 3.66rem);
+    --fs-5: clamp(1.58rem, calc(0.41rem + 5.85vw), 4.58rem);
     }
 
     html, body{
@@ -66,11 +66,11 @@ const GlobalStyles = createGlobalStyle`
     }
 
     h1{
-        font-size: var(--fs-4);
+        font-size: var(--fs-5);
     }
 
     h2{
-        font-size: var(--fs-2);
+        font-size: var(--fs-3);
     }
 
     .section-h{ 
