@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import GlobalStyles from "./GlobalStyles";
 import { GlobalContextProvider } from "./GlobalContext";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
