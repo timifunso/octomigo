@@ -36,8 +36,8 @@ const GlobalStyles = createGlobalStyle`
         -moz-osx-font-smoothing: grayscale;
         font-size: 1rem;
         line-height: 1.5;
-        background-color: var(--color-700);
-        color: var(--color-110);
+        /* background-color: var(--color-700); */
+        /* color: var(--color-110); */
     }
 
     input, button{

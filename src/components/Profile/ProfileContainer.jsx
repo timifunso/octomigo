@@ -21,7 +21,7 @@ function ProfileContainer({ data }) {
       .then((res) => res.json())
       .then((data) => setUserRepos(data))
       .then(() => setIsLoading(false))
-      //   .then(() => console.log(userRepos))
+      // .then(() => console.log(userRepos))
       .catch((error) => console.log(error));
   }, []);
 
@@ -41,7 +41,7 @@ function ProfileContainer({ data }) {
               </div>
               <div>
                 <span>{followers} </span>
-                <span>Following</span>
+                <span>Followers</span>
               </div>
               <div>
                 <span>{following} </span>
@@ -51,7 +51,7 @@ function ProfileContainer({ data }) {
           </div>
         </ProfileContainerStyled>
       </header>
-      <div>Joined {created_at}</div>
+      {/* <div>Joined {created_at}</div> */}
       {!isLoading && <ReposContainer data={userRepos} />}
     </section>
   );

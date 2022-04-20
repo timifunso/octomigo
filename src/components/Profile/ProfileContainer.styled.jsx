@@ -5,7 +5,7 @@ const ProfileContainerStyled = styled.header`
   max-width: 1200px;
   margin: 1rem auto;
   padding: 3rem 1rem;
-  background-color: var(--color-500);
+  background-color: var(--color-120);
   color: var(--color-700);
   display: grid;
   gap: 1rem;
@@ -13,8 +13,10 @@ const ProfileContainerStyled = styled.header`
 
   & img {
     width: min(50vw, 200px);
+    height: min(50vw, 200px);
     object-fit: contain;
     display: block;
+    border-radius: 50%;
   }
 
   & .w-md {
@@ -29,7 +31,6 @@ const ProfileContainerStyled = styled.header`
 
     & div {
       display: grid;
-      margin-top: 1rem;
 
       & span:nth-child(1) {
         font-weight: bold;
@@ -38,7 +39,7 @@ const ProfileContainerStyled = styled.header`
     }
   }
 
-  @media (min-width: 500px) {
+  @media (min-width: 760px) {
     grid-template-columns: 200px 1fr;
     gap: min(3rem, 10vw);
   }
