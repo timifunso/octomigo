@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ReposContainer from "../Repos/ReposContainer";
 import ProfileContainerStyled from "./ProfileContainer.styled";
-import LineIcon from "react-lineicons";
+// import LineIcon from "react-lineicons";
 
 function ProfileContainer({ data }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -24,7 +24,7 @@ function ProfileContainer({ data }) {
       <header>
         <ProfileContainerStyled>
           <button title="Go back to" onClick={() => navigate("/")}>
-            <LineIcon name="arrow-left" />
+            {/* <LineIcon name="arrow-left" /> */}
           </button>
           <img src={avatar_url} alt="" />
           <div className="details">
