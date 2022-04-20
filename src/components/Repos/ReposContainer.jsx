@@ -8,7 +8,7 @@ function ReposContainer({ data }) {
       <h2 className="section-h">Repositories</h2>
       <RepoContainerStyled>
         {data.map((repo) => (
-          <RepoItem data={repo} />
+          <RepoItem key={repo.html_url} data={repo} />
         ))}
       </RepoContainerStyled>
     </Wrapper>
