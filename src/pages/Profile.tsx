@@ -2,9 +2,8 @@ import { useParams } from "react-router-dom";
 
 function Profile() {
   const router = useParams();
-  console.log({ router });
 
-  return <div>User</div>;
+  return <h1>User is {router.username}</h1>;
 }
 
 export default Profile;
