@@ -19,12 +19,14 @@ function HomePage() {
 
   return (
     <div className={styles.home}>
-      <h1 className={styles.heading}>Octomigo</h1>
+      <div className={styles.illustration}></div>
+      <div className={styles.heading}>Octomigo</div>
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.form__container}>
           <input
             type="search"
             required
+            placeholder="Enter Github Username"
             className={styles.form__input}
             onChange={handleOnChange}
           />
