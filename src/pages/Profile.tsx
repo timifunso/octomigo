@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { Loader, NotFound, Error } from "../components";
+import { Loader, NotFound, Error, UserProfile } from "../components";
 
 export type response = "PENDING" | "SUCCESS" | "ERROR" | "NOT_FOUND";
 
@@ -15,11 +15,9 @@ function Profile() {
   async function fetchUserProfile() {
     try {
       let res = await fetch(`https://api.github.com/users/${username}`);
-      let data = await res.json();
-      console.log(data);
-      return data;
+      return await res.json();
     } catch (e) {
-      console.log(e);
+      return e;
     }
   }
 
@@ -59,16 +57,9 @@ function Profile() {
   if (responseState === "PENDING") return <Loader />;
   if (responseState === "ERROR") return <Error />;
   if (responseState === "NOT_FOUND") return <NotFound />;
+  if (!userProfile?.login) return <NotFound />;
 
-  return (
-    <div>
-      <div>Github user is {userProfile?.login}</div>
-      <div>No of Repos {userRepositories?.length}</div>
-
-      <br />
-      <Link to="/">Home</Link>
-    </div>
-  );
+  return <UserProfile user={userProfile} data={userRepositories} />;
 }
 
 export default Profile;
