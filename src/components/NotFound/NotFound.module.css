@@ -2,13 +2,14 @@
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
 
 .illustration {
-  --size: min(80%, 280px);
+  --size: min(80%, 200px);
   width: var(--size);
   height: var(--size);
   background-color: #ebebeb;
@@ -22,6 +23,7 @@
 
 .description {
   max-width: 400px;
+  margin-bottom: 24px;
 }
 
 .link {
@@ -29,4 +31,10 @@
   padding: 8px 16px;
   color: var(--white-100);
   background-color: var(--blue-100);
+  border-radius: var(--border-radius-xlg);
+  transition: opacity 200ms;
+}
+
+.link:hover {
+  opacity: 0.9;
 }

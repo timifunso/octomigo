@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Loader } from "../components";
+import { Loader, NotFound } from "../components";
 
 type response = "PENDING" | "SUCCESS" | "ERROR" | "NOT_FOUND";
 
@@ -47,9 +47,9 @@ function Profile() {
     fetchPageData();
   }, []);
 
-  if (responseState === "PENDING") return <Loader />;
+  if (responseState === "PENDING") return <NotFound />;
   if (responseState === "ERROR") return <h1>There was an error</h1>;
-  if (responseState === "NOT_FOUND") return <h1>Not found</h1>;
+  if (responseState === "NOT_FOUND") return <NotFound />;
 
   return (
     <div>
