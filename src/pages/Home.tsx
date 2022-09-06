@@ -28,7 +28,6 @@ function HomePage() {
             className={styles.form__input}
             onChange={handleOnChange}
           />
-          <button className={styles.form__button}>Search Github</button>
         </div>
       </form>
     </div>
