@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { Loader, NotFound } from "../components";
 
@@ -14,10 +15,9 @@ function Profile() {
   async function fetchUserProfile() {
     try {
       let res = await fetch(`https://api.github.com/users/${username}`);
-      if (res.ok) return await res.json();
-      setResponseState("NOT_FOUND");
+      return await res.json();
     } catch (e) {
-      console.log(e);
+      return e;
     }
   }
 
@@ -34,6 +34,12 @@ function Profile() {
     setResponseState("PENDING");
     try {
       let profileData = await fetchUserProfile();
+      if (profileData?.message == "Not Found") {
+        return setResponseState("NOT_FOUND");
+      }
+      if (profileData?.message == "Failed to fetch") {
+        return setResponseState("ERROR");
+      }
       let reposData = await fetchUserRepos(profileData.repos_url);
       setUserProfile(profileData);
       setUserRepositories(reposData);
@@ -45,6 +51,7 @@ function Profile() {
 
   useEffect(() => {
     fetchPageData();
+    console.log(userProfile);
   }, []);
 
   if (responseState === "PENDING") return <Loader />;
@@ -53,8 +60,11 @@ function Profile() {
 
   return (
     <div>
-      <div>Github user is {userProfile.login}</div>
-      <div>No of Repos {userRepositories.length}</div>
+      <div>Github user is {userProfile?.login}</div>
+      <div>No of Repos {userRepositories?.length}</div>
+
+      <br />
+      <Link to="/">Home</Link>
     </div>
   );
 }
