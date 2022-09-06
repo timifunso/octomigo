@@ -1,14 +1,14 @@
+import styles from "../NotFound/NotFound.module.css";
 import { Link } from "react-router-dom";
-import styles from "./NotFound.module.css";
 
-function NotFound() {
+function Error() {
   return (
     <div className={styles.container}>
       <div className={styles.illustration}></div>
-      <div className={styles.heading}>Not Found!</div>
+      <div className={styles.heading}>Oops!</div>
       <div className={styles.description}>
-        Sorry, I couldn't find the Github User. Please check if you got the
-        username wrong
+        Sorry, an error occurred while fetching this Github user. Please check
+        your network connection and try again
       </div>
       <Link to="/" className={styles.link}>
         Try Again
@@ -17,4 +17,4 @@ function NotFound() {
   );
 }
 
-export default NotFound;
+export default Error;

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { Loader, NotFound } from "../components";
+import { Loader, NotFound, Error } from "../components";
 
 export type response = "PENDING" | "SUCCESS" | "ERROR" | "NOT_FOUND";
 
@@ -15,9 +15,11 @@ function Profile() {
   async function fetchUserProfile() {
     try {
       let res = await fetch(`https://api.github.com/users/${username}`);
-      return await res.json();
+      let data = await res.json();
+      console.log(data);
+      return data;
     } catch (e) {
-      return e;
+      console.log(e);
     }
   }
 
@@ -34,6 +36,7 @@ function Profile() {
     setResponseState("PENDING");
     try {
       let profileData = await fetchUserProfile();
+      if (!profileData) return setResponseState("NOT_FOUND");
       if (profileData?.message == "Not Found") {
         return setResponseState("NOT_FOUND");
       }
@@ -51,12 +54,11 @@ function Profile() {
 
   useEffect(() => {
     fetchPageData();
-    console.log(userProfile);
   }, []);
 
   if (responseState === "PENDING") return <Loader />;
-  if (responseState === "ERROR") return <NotFound Type={responseState} />;
-  if (responseState === "NOT_FOUND") return <NotFound Type={responseState} />;
+  if (responseState === "ERROR") return <Error />;
+  if (responseState === "NOT_FOUND") return <NotFound />;
 
   return (
     <div>
