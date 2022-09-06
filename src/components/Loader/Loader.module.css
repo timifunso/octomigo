@@ -2,10 +2,20 @@
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.title {
-  font-size: var(--font-size-md);
+.loader {
+  width: 120px;
+  height: 120px;
+  background-color: #ebebeb;
+  border-radius: 50%;
+  margin-bottom: 16px;
+}
+
+.heading {
+  font-size: var(--font-size-base);
+  margin: 8px 0;
 }
