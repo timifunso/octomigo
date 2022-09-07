@@ -1,0 +1,72 @@
+.container {
+  height: 100%;
+  padding: 64px 0px;
+}
+
+.app {
+  width: min(90%, 1000px);
+  display: grid;
+  gap: 16px;
+  margin: 0 auto;
+}
+
+.details,
+.account,
+.repos {
+  min-height: 280px;
+  background-color: #ebebeb;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.header {
+  position: sticky;
+  padding: 16px 24px;
+  border-bottom: 1px solid #fff;
+}
+
+.repos {
+  display: flex;
+  flex-direction: column;
+}
+
+.repos__list {
+  flex-grow: 1;
+  display: grid;
+  gap: 16px;
+  overflow-y: auto;
+  padding: 24px;
+  list-style: none;
+}
+
+.repo__item {
+  height: 144px;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.footer {
+  text-align: center;
+  padding: 40px 0;
+}
+
+@media (min-width: 1000px) {
+  .app {
+    max-height: 90vh;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .repos {
+    grid-column: 2/4;
+    grid-row: 1/3;
+  }
+
+  .account {
+    grid-column: 1/2;
+  }
+
+  .repos__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -14,29 +14,30 @@ function Profile() {
   async function fetchUserProfile() {
     try {
       let res = await fetch(`https://api.github.com/users/${username}`);
-      let data = await res.json();
       if (res.ok && res.status < 400) {
+        let data = await res.json();
+        setUserProfile(data);
         setResponseState("SUCCESS");
         console.log(data);
         return data;
       }
+      setResponseState("ERROR");
     } catch (e) {
       setResponseState("ERROR");
       console.log(e);
     }
   }
 
-  async function fetchUserRepos(url: string) {
+  async function fetchUserRepos() {
     try {
-      let res = await fetch(url);
+      let res = await fetch(`https://api.github.com/users/${username}/repos`);
       if (res.ok && res.status < 400) {
         let data = await res.json();
-        setResponseState("SUCCESS");
+        setUserRepositories(data);
         console.log(data);
         return data;
       }
     } catch (e) {
-      setResponseState("ERROR");
       console.log(e);
     }
   }
@@ -44,10 +45,8 @@ function Profile() {
   async function fetchPageData() {
     setResponseState("PENDING");
     try {
-      let profileData = await fetchUserProfile();
-      let reposData = await fetchUserRepos(profileData.repos_url);
-      setUserProfile(profileData);
-      setUserRepositories(reposData);
+      await fetchUserProfile();
+      await fetchUserRepos();
     } catch (e) {
       console.log(e);
     }
