@@ -16,11 +16,11 @@ function UserProfile({ data, user }: UserProfileInterface) {
             <div className={styles.thumbnail}>
               <img src={user.avatar_url} alt="User's Profile Photo" />
             </div>
-            <div className={styles.name}>{user.name}</div>
-            <div className={styles.username}>@{user.login}</div>
-            <div className={styles.bio}>{user.bio}</div>
-            <div className={styles.location}>{user.location}</div>
-            <div className={styles.company}>{user.company}</div>
+            <div className={styles.name}>{user?.name}</div>
+            <div className={styles.username}>@{user?.login}</div>
+            <div className={styles.bio}>{user?.bio}</div>
+            <div className={styles.location}>{user?.location}</div>
+            <div className={styles.company}>{user?.company}</div>
           </div>
         </div>
         <div className={styles.stats}>
@@ -28,15 +28,15 @@ function UserProfile({ data, user }: UserProfileInterface) {
           <div className={styles.stats__container}>
             <div className={styles.stat__box}>
               <small className={styles.stat__title}>Followers</small>
-              <div className={styles.stat__content}>{user.followers}</div>
+              <div className={styles.stat__content}>{user?.followers}</div>
             </div>
             <div className={styles.stat__box}>
               <small className={styles.stat__title}>Following</small>
-              <div className={styles.stat__content}>{user.following}</div>
+              <div className={styles.stat__content}>{user?.following}</div>
             </div>
             <div className={styles.stat__box}>
               <small className={styles.stat__title}>Website/Blog</small>
-              <div className={styles.stat__content}>{user.blog}</div>
+              <div className={styles.stat__content}>{user?.blog}</div>
             </div>
 
             <a
@@ -51,12 +51,41 @@ function UserProfile({ data, user }: UserProfileInterface) {
         </div>
         <div className={styles.repos}>
           <div className={styles.header}>
-            Repositories <span>{user.public_repos}</span>
+            Repositories <span>{user?.public_repos}</span>
           </div>
           <ul className={styles.repos__list}>
-            {data.map((repo: any) => (
-              <li className={styles.repo__item} key={repo.id}>
-                {repo.name}
+            {data?.map((repo: any) => (
+              <li className={styles.repo__item} key={repo?.id}>
+                <div className={styles.item__header}>
+                  <a
+                    href={`https://${repo?.html_url}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {repo?.name}
+                  </a>
+                </div>
+                <div className={styles.item__description}>
+                  {repo?.description?.length > 64
+                    ? repo?.description?.slice(0, 64)
+                    : repo?.description}
+                </div>
+                <div className={styles.item__stats}>
+                  <div className={styles.item__stat}>
+                    <small>Stars</small>
+                    <div>{repo?.stargazers_count}</div>
+                  </div>
+
+                  <div className={styles.item__stat}>
+                    <small>Watchers</small>
+                    <div>{repo?.watchers_count}</div>
+                  </div>
+
+                  <div className={styles.item__stat}>
+                    <small>forks</small>
+                    <div>{repo?.forks_count}</div>
+                  </div>
+                </div>
               </li>
             ))}
           </ul>
