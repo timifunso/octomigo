@@ -13,7 +13,7 @@
 .illustration {
   width: 120px;
   height: 120px;
-  background-color: #ebebeb;
+  background-color: var(--white-100);
   border-radius: 40px;
   margin-top: -64px;
 }
@@ -47,7 +47,7 @@
 
 .form__input {
   text-align: center;
-  background-color: #ebebeb;
+  background-color: var(--white-100);
 }
 
 .form__button {
