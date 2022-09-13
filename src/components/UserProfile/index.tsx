@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from "./UserProfile.module.css";
+import { Location, Calendar, Graph, User, Book1 } from "iconsax-react";
 
 interface UserProfileInterface {
   user: any;
@@ -11,7 +12,10 @@ function UserProfile({ data, user }: UserProfileInterface) {
     <div className={styles.container}>
       <div className={styles.app}>
         <div className={styles.details}>
-          <div className={styles.header}>Profile</div>
+          <div className={styles.header}>
+            <User size={20} className={styles.header__icon} />
+            Profile
+          </div>
           <div className={styles.details__container}>
             <div className={styles.thumbnail}>
               <img src={user.avatar_url} alt="User's Profile Photo" />
@@ -26,27 +30,43 @@ function UserProfile({ data, user }: UserProfileInterface) {
               @{user?.login}
             </a>
             <div className={styles.bio}>{user?.bio}</div>
-            <div className={styles.location}>{user?.location}</div>
-            <div className={styles.company}>{user?.company}</div>
+            <div className={styles.location}>
+              <Location size={16} /> {user?.location}
+            </div>
+            {/* <div className={styles.company}>{user?.company}</div> */}
             <div className={styles.anniversary}>
-              {new Date(`${user?.created_at}`).toLocaleDateString()}
+              <Calendar size={16} />
+              Joined at
+              <span>
+                {new Date(`${user?.created_at}`).toLocaleDateString()}
+              </span>
             </div>
           </div>
         </div>
         <div className={styles.stats}>
-          <div className={styles.header}>Stats</div>
+          <div className={styles.header}>
+            <Graph size={20} className={styles.header__icon} />
+            Stats
+          </div>
           <div className={styles.stats__container}>
             <div className={styles.stat__box}>
-              <small className={styles.stat__title}>Followers</small>
+              <div className={styles.stat__title}>Followers</div>
               <div className={styles.stat__content}>{user?.followers}</div>
             </div>
             <div className={styles.stat__box}>
-              <small className={styles.stat__title}>Following</small>
+              <div className={styles.stat__title}>Following</div>
               <div className={styles.stat__content}>{user?.following}</div>
             </div>
             <div className={styles.stat__box}>
-              <small className={styles.stat__title}>Website/Blog</small>
-              <div className={styles.stat__content}>{user?.blog}</div>
+              <div className={styles.stat__title}>Website / Blog</div>
+              <a
+                href={user?.blog}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.stat__link}
+              >
+                {user?.blog}
+              </a>
             </div>
 
             <a
@@ -61,6 +81,7 @@ function UserProfile({ data, user }: UserProfileInterface) {
         </div>
         <div className={styles.repos}>
           <div className={styles.header}>
+            <Book1 size={20} className={styles.header__icon} />
             Repositories <span>{user?.public_repos}</span>
           </div>
           <ul className={styles.repos__list}>
