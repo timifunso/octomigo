@@ -30,6 +30,9 @@ function HomePage() {
             className={styles.form__input}
             onChange={handleOnChange}
           />
+          <button className={styles.form__button} type="submit">
+            Find Profile
+          </button>
         </div>
       </form>
     </div>

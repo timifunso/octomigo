@@ -1,5 +1,5 @@
 .home {
-  --max-width: 400px;
+  --max-width: 280px;
   height: 100%;
   width: 100%;
   display: flex;
@@ -14,13 +14,13 @@
   width: 120px;
   height: 120px;
   background-color: #ebebeb;
-  border-radius: 50%;
+  border-radius: 40px;
   margin-top: -64px;
 }
 
 .heading {
-  font-size: var(--font-size-lg);
   font-weight: 900;
+  font-size: var(--font-size-md);
   max-width: var(--max-width);
   margin: 16px 40px;
 }
@@ -34,24 +34,26 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  align-items: center;
 }
 
 .form__input,
 .form__button {
   width: 100%;
   height: 48px;
-  border-radius: var(--border-radius-xlg);
+  border-radius: var(--border-radius-md);
+  padding: 0 40px;
 }
 
 .form__input {
-  background-color: #ebebeb;
   text-align: center;
-  padding: 0 16px;
+  background-color: #ebebeb;
 }
 
 .form__button {
-  background: var(--blue-100);
+  width: max-content;
+  background-color: var(--blue-100);
   color: var(--white-100);
-  cursor: pointer;
   font-weight: 600;
+  cursor: pointer;
 }
