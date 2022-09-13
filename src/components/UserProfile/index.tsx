@@ -17,10 +17,20 @@ function UserProfile({ data, user }: UserProfileInterface) {
               <img src={user.avatar_url} alt="User's Profile Photo" />
             </div>
             <div className={styles.name}>{user?.name}</div>
-            <div className={styles.username}>@{user?.login}</div>
+            <a
+              href={`https://github.com/${user?.login}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.username}
+            >
+              @{user?.login}
+            </a>
             <div className={styles.bio}>{user?.bio}</div>
             <div className={styles.location}>{user?.location}</div>
             <div className={styles.company}>{user?.company}</div>
+            <div className={styles.anniversary}>
+              {new Date(`${user?.created_at}`).toLocaleDateString()}
+            </div>
           </div>
         </div>
         <div className={styles.stats}>
