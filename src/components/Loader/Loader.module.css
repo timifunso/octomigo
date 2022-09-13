@@ -7,15 +7,33 @@
   justify-content: center;
 }
 
-.loader {
-  width: 120px;
-  height: 120px;
-  background-color: #ebebeb;
-  border-radius: 50%;
-  margin-bottom: 16px;
+.loader__icon {
+  color: var(--blue-100);
+  -webkit-animation: spin 500ms linear infinite;
+  -moz-animation: spin 500ms linear infinite;
+  -ms-animation: spin 500ms linear infinite;
+  -o-animation: spin 500ms linear infinite;
+  animation: spin 500ms linear infinite;
 }
 
 .heading {
   font-size: var(--font-size-base);
-  margin: 8px 0;
+  margin: 16px 0;
+}
+
+@keyframes spin {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
