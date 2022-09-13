@@ -26,7 +26,7 @@ function HomePage() {
           <input
             type="search"
             required
-            placeholder="Enter Github Username"
+            placeholder="Github Username"
             className={styles.form__input}
             onChange={handleOnChange}
           />
