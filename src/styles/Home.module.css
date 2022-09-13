@@ -41,8 +41,8 @@
 .form__button {
   width: 100%;
   height: 48px;
-  border-radius: var(--border-radius-md);
   padding: 0 40px;
+  border-radius: var(--border-radius-xlg);
 }
 
 .form__input {
