@@ -9,11 +9,27 @@ import {
   ArrowLeft2,
   ArrowLeft,
 } from "iconsax-react";
+import { motion } from "framer-motion";
 
 interface UserProfileInterface {
   user: any;
   data: any;
 }
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const item = {
+  hidden: { y: "24px", opacity: 0 },
+  show: { y: "0px", opacity: 1 },
+};
 
 function UserProfile({ data, user }: UserProfileInterface) {
   return (
@@ -41,53 +57,77 @@ function UserProfile({ data, user }: UserProfileInterface) {
             </div>
           </div>
         </div>
-        <div className={styles.container}>
-          <div className={styles.thumbnail}>
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className={styles.container}
+        >
+          <motion.div variants={item} className={styles.thumbnail}>
             <img src={user?.avatar_url} alt="User's Profile Photo" />
-          </div>
-          <div className={styles.name}>{user?.name}</div>
-          <a
+          </motion.div>
+          <motion.div variants={item} className={styles.name}>
+            {user?.name}
+          </motion.div>
+          <motion.a
+            variants={item}
             href={user?.html_url}
             target="_blank"
             rel="noopener noreferrer"
             className={styles.username}
           >
             @{user?.login}
-          </a>
+          </motion.a>
           {user?.location && (
-            <div className={styles.location}>
+            <motion.div variants={item} className={styles.location}>
               <Location size={16} />
               {user?.location}
-            </div>
+            </motion.div>
           )}
           {/* <div>{new Date(`${user?.created_at}`).toLocaleDateString()}</div> */}
-        </div>
+        </motion.div>
       </div>
 
       <div className={styles.content}>
         <div className={styles.container}>
           <div className={styles.section}>
-            <div className={styles.stats}>
-              <div className={styles.stat}>
+            <div className={styles.title}>Profile Stats</div>
+            <motion.div
+              variants={container}
+              initial="hidden"
+              animate="show"
+              className={styles.stats}
+            >
+              <motion.div variants={item} className={styles.stat}>
                 <div className={styles.number}>{user?.following}</div>
                 <div className={styles.text}>Following</div>
-              </div>
-              <div className={styles.stat}>
+              </motion.div>
+              <motion.div variants={item} className={styles.stat}>
                 <div className={styles.number}>{user.followers}</div>
                 <div className={styles.text}>Followers</div>
-              </div>
-              <div className={styles.stat}>
+              </motion.div>
+              <motion.div variants={item} className={styles.stat}>
                 <div className={styles.number}>{user?.public_repos}</div>
                 <div className={styles.text}>Repositories</div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
 
           <div className={styles.section}>
             <div className={styles.title}>Repositories</div>
-            <ul className={styles.repos}>
+            <motion.ul
+              variants={container}
+              initial="hidden"
+              animate="show"
+              className={styles.repos}
+            >
               {data?.map((repo: any) => (
-                <li className={styles.repo} key={repo?.id}>
+                <motion.li
+                  initial={{ y: "64px", opacity: 0 }}
+                  animate={{ y: "0px", opacity: 1 }}
+                  className={styles.repo}
+                  key={repo?.id}
+                >
                   <a
                     href={`https://${repo?.html_url}`}
                     target="_blank"
@@ -117,130 +157,13 @@ function UserProfile({ data, user }: UserProfileInterface) {
                       </div>
                     </div>
                   </div>
-                </li>
+                </motion.li>
               ))}
-            </ul>
+            </motion.ul>
           </div>
         </div>
       </div>
     </div>
-    // <div className={styles.container}>
-    //   <div className={styles.app}>
-    //     <div className={styles.details}>
-    //       <div className={styles.header}>
-    //         <User size={20} className={styles.header__icon} />
-    //         Profile
-    //       </div>
-    //       <div className={styles.details__container}>
-    //         <div className={styles.thumbnail}>
-    //           <img src={user.avatar_url} alt="User's Profile Photo" />
-    //         </div>
-    //         <div className={styles.name}>{user?.name}</div>
-    //         <a
-    //           href={`https://github.com/${user?.login}`}
-    //           target="_blank"
-    //           rel="noopener noreferrer"
-    //           className={styles.username}
-    //         >
-    //           @{user?.login}
-    //         </a>
-    //         <div className={styles.bio}>{user?.bio}</div>
-    //         <div className={styles.location}>
-    //           <Location size={16} /> {user?.location}
-    //         </div>
-    //         {/* <div className={styles.company}>{user?.company}</div> */}
-    //         <div className={styles.anniversary}>
-    //           <Calendar size={16} />
-    //           Joined at
-    //           <span>
-    //             {new Date(`${user?.created_at}`).toLocaleDateString()}
-    //           </span>
-    //         </div>
-    //       </div>
-    //     </div>
-    //     <div className={styles.stats}>
-    //       <div className={styles.header}>
-    //         <Graph size={20} className={styles.header__icon} />
-    //         Stats
-    //       </div>
-    //       <div className={styles.stats__container}>
-    //         <div className={styles.stat__box}>
-    //           <div className={styles.stat__title}>Followers</div>
-    //           <div className={styles.stat__content}>{user?.followers}</div>
-    //         </div>
-    //         <div className={styles.stat__box}>
-    //           <div className={styles.stat__title}>Following</div>
-    //           <div className={styles.stat__content}>{user?.following}</div>
-    //         </div>
-    //         <div className={styles.stat__box}>
-    //           <div className={styles.stat__title}>Website / Blog</div>
-    //           <a
-    //             href={user?.blog}
-    //             target="_blank"
-    //             rel="noopener noreferrer"
-    //             className={styles.stat__link}
-    //           >
-    //             {user?.blog}
-    //           </a>
-    //         </div>
-
-    //         <a
-    //           href={`http://twitter.com/${user.twitter_username}`}
-    //           target="_blank"
-    //           rel="noopener noreferrer"
-    //           className={styles.profile__link}
-    //         >
-    //           Follow on Twitter
-    //         </a>
-    //       </div>
-    //     </div>
-    //     <div className={styles.styles.repos}>
-    //       <div className={styles.header}>
-    //         <Book1 size={20} className={styles.header__icon} />
-    //         Repositories <span>{user?.public_repos}</span>
-    //       </div>
-    //       <ul className={styles.repos__list}>
-    //         {data?.map((repo: any) => (
-    //           <li className={styles.repo__item} key={repo?.id}>
-    //             <div className={styles.item__header}>
-    //               <a
-    //                 href={`https://${repo?.html_url}`}
-    //                 target="_blank"
-    //                 rel="noopener noreferrer"
-    //               >
-    //                 {repo?.name}
-    //               </a>
-    //             </div>
-    //             <div className={styles.item__description}>
-    //               {repo?.description?.length > 64
-    //                 ? repo?.description?.slice(0, 64)
-    //                 : repo?.description}
-    //             </div>
-    //             <div className={styles.item__stats}>
-    //               <div className={styles.item__stat}>
-    //                 <small>Stars</small>
-    //                 <div>{repo?.stargazers_count}</div>
-    //               </div>
-
-    //               <div className={styles.item__stat}>
-    //                 <small>Watchers</small>
-    //                 <div>{repo?.watchers_count}</div>
-    //               </div>
-
-    //               <div className={styles.item__stat}>
-    //                 <small>forks</small>
-    //                 <div>{repo?.forks_count}</div>
-    //               </div>
-    //             </div>
-    //           </li>
-    //         ))}
-    //       </ul>
-    //     </div>
-    //   </div>
-    //   <footer className={styles.footer}>
-    //     <Link to="/">Octomiggo</Link>
-    //   </footer>
-    // </div>
   );
 }
 
