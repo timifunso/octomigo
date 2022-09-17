@@ -150,8 +150,8 @@
 }
 
 .user .thumbnail {
-  width: 180px;
-  height: 180px;
+  width: min(70vw, 240px);
+  height: min(70vw, 240px);
   background-color: #fff;
   border-radius: 48px;
   display: flex;
@@ -192,7 +192,7 @@
 .content {
   background-color: #fff;
   min-height: 150vh;
-  /* border-radius: 40px; */
+  border-radius: 48px;
 }
 
 .content .container {
@@ -230,7 +230,6 @@
   display: grid;
   gap: 24px;
   margin-top: 24px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 .repo {
@@ -300,5 +299,9 @@
 
   .content .container {
     padding: 20px 0px;
+  }
+
+  .repos {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 }
