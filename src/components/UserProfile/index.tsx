@@ -1,6 +1,14 @@
 import { Link } from "react-router-dom";
 import styles from "./UserProfile.module.css";
-import { Location, Calendar, Graph, User, Book1 } from "iconsax-react";
+import {
+  Location,
+  Calendar,
+  Graph,
+  User,
+  Book1,
+  ArrowLeft2,
+  ArrowLeft,
+} from "iconsax-react";
 
 interface UserProfileInterface {
   user: any;
@@ -12,16 +20,40 @@ function UserProfile({ data, user }: UserProfileInterface) {
     <div className={styles.app}>
       <div className={styles.user}>
         <div className={styles.header}>
-          <Link to="/">Back</Link>
-          <div>Profile</div>
-          <a href="#">Menu</a>
+          <div className={styles.container}>
+            <Link to="/" className={styles.btn__back} data-title="Go back home">
+              <ArrowLeft />
+            </Link>
+            <div className={styles.title}>Profile</div>
+            <div className={styles.menu}>
+              <button className={styles.btn__menu} title="menu button"></button>
+              <nav className={styles.menu__nav}>
+                <Link to="/">Home</Link>
+                <Link to="/">About</Link>
+                <a
+                  href="https://github.com/gzkdev/octomigo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  See Code
+                </a>
+              </nav>
+            </div>
+          </div>
         </div>
         <div className={styles.container}>
           <div className={styles.thumbnail}>
-            {/* <img src={user?.avatar_url} alt="User's Profile Photo" /> */}
+            <img src={user?.avatar_url} alt="User's Profile Photo" />
           </div>
           <div className={styles.name}>{user?.name}</div>
-          <div className={styles.username}>@{user?.login}</div>
+          <a
+            href={user?.html_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.username}
+          >
+            @{user?.login}
+          </a>
           {user?.location && (
             <div className={styles.location}>
               <Location size={16} />
