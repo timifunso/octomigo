@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import styles from "./UserProfile.module.css";
 import { Location, ArrowLeft } from "iconsax-react";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 interface UserProfileInterface {
   user: any;
@@ -24,6 +25,8 @@ const item = {
 };
 
 function UserProfile({ data, user }: UserProfileInterface) {
+  const [showMenu, setShowMenu] = useState(false);
+
   return (
     <div className={styles.app}>
       <div className={styles.user}>
@@ -34,8 +37,13 @@ function UserProfile({ data, user }: UserProfileInterface) {
             </Link>
             <div className={styles.title}>Profile</div>
             <div className={styles.menu}>
-              <button className={styles.btn__menu} title="menu button"></button>
-              <nav className={styles.menu__nav}>
+              <button
+                className={styles.btn__menu}
+                title="menu button"
+                onFocus={() => setShowMenu(true)}
+                onBlur={() => setShowMenu(false)}
+              ></button>
+              <nav className={styles.menu__nav} data-show={showMenu}>
                 <Link to="/">Home</Link>
                 <Link to="/">About</Link>
                 <a
