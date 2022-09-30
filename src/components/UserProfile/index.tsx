@@ -40,7 +40,7 @@ function UserProfile({ data, user }: UserProfileInterface) {
               <button
                 className={styles.btn__menu}
                 title="menu button"
-                onFocus={() => setShowMenu(true)}
+                onClick={() => setShowMenu(!showMenu)}
                 onBlur={() => setShowMenu(false)}
               ></button>
               <nav className={styles.menu__nav}>
