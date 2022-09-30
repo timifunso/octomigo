@@ -1,15 +1,8 @@
 import { Link } from "react-router-dom";
 import styles from "./UserProfile.module.css";
-import {
-  Location,
-  Calendar,
-  Graph,
-  User,
-  Book1,
-  ArrowLeft2,
-  ArrowLeft,
-} from "iconsax-react";
+import { Location, ArrowLeft } from "iconsax-react";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 interface UserProfileInterface {
   user: any;
@@ -32,17 +25,24 @@ const item = {
 };
 
 function UserProfile({ data, user }: UserProfileInterface) {
+  const [showMenu, setShowMenu] = useState(false);
+
   return (
     <div className={styles.app}>
       <div className={styles.user}>
         <div className={styles.header}>
           <div className={styles.container}>
-            <Link to="/" className={styles.btn__back} data-title="Go back home">
+            <Link to="/" className={styles.btn__back} data-title="Home">
               <ArrowLeft />
             </Link>
             <div className={styles.title}>Profile</div>
-            <div className={styles.menu}>
-              <button className={styles.btn__menu} title="menu button"></button>
+            <div className={styles.menu} data-show-menu={showMenu}>
+              <button
+                className={styles.btn__menu}
+                title="menu button"
+                onClick={() => setShowMenu(!showMenu)}
+                onBlur={() => setShowMenu(false)}
+              ></button>
               <nav className={styles.menu__nav}>
                 <Link to="/">Home</Link>
                 <Link to="/">About</Link>
