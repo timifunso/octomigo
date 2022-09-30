@@ -1,14 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from "./UserProfile.module.css";
-import {
-  Location,
-  Calendar,
-  Graph,
-  User,
-  Book1,
-  ArrowLeft2,
-  ArrowLeft,
-} from "iconsax-react";
+import { Location, ArrowLeft } from "iconsax-react";
 import { motion } from "framer-motion";
 
 interface UserProfileInterface {
@@ -37,7 +29,7 @@ function UserProfile({ data, user }: UserProfileInterface) {
       <div className={styles.user}>
         <div className={styles.header}>
           <div className={styles.container}>
-            <Link to="/" className={styles.btn__back} data-title="Go back home">
+            <Link to="/" className={styles.btn__back} data-title="Home">
               <ArrowLeft />
             </Link>
             <div className={styles.title}>Profile</div>
