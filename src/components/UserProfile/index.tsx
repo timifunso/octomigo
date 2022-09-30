@@ -36,14 +36,14 @@ function UserProfile({ data, user }: UserProfileInterface) {
               <ArrowLeft />
             </Link>
             <div className={styles.title}>Profile</div>
-            <div className={styles.menu}>
+            <div className={styles.menu} data-show-menu={showMenu}>
               <button
                 className={styles.btn__menu}
                 title="menu button"
                 onFocus={() => setShowMenu(true)}
                 onBlur={() => setShowMenu(false)}
               ></button>
-              <nav className={styles.menu__nav} data-show={showMenu}>
+              <nav className={styles.menu__nav}>
                 <Link to="/">Home</Link>
                 <Link to="/">About</Link>
                 <a
